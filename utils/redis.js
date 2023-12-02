@@ -14,7 +14,7 @@ class RedisClient {
 			console.log(`Redis client not connected to the server: ${error.message}`);
 		});
 
-		this.client.on('connect', () => {
+		this.client.on('ready', () => {
 		});
 	}
 
@@ -40,7 +40,7 @@ class RedisClient {
 	 */
 
 	async set(key, value, duration) {
-		this.client.setex(key, value, duration);
+		this.client.setex(key, duration, value);
 	}
 
 	/**
