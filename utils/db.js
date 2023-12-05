@@ -17,7 +17,7 @@ class DBClient {
       this.db = this.client.db(`${DB_DATABASE}`);
     }).catch((err) => {
       console.log(err);
-  });
+    });
   }
 
   /**
