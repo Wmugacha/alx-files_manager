@@ -23,7 +23,10 @@ class RedisClient {
    * @return {boolean} true is connection is successful and false if not
    * */
   isAlive() {
-    return this.client.connected;
+    if (this.client.connected) {
+      return true;
+    }
+    return false
   }
 
   async get(key) {
