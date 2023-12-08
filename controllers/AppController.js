@@ -3,6 +3,8 @@ import redisClient from '../utils/redis';
 
 class AppController {
 //   constructor() {}
+// Disable class-methods-use-this for the entire class
+/* eslint-disable class-methods-use-this */
 
   getStatus(req, res) {
     if (dbClient.isAlive() && redisClient.isAlive()) {
@@ -22,6 +24,8 @@ class AppController {
     const nbFiles = await dbClient.nbFiles();
     return res.status(200).send({ users: nbUsers, files: nbFiles });
   }
+// Enable class-methods-use-this for the entire class
+/* eslint-enable class-methods-use-this */
 }
 const appController = new AppController();
 export default appController;
